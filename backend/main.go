@@ -3,18 +3,16 @@ package main
 import (
 	"fmt"
 	// "log"
+	"backend/routes"
 	"github.com/gin-gonic/gin"
 )
 
-func main(){
-	fmt.Println("Starting Gin server...")
-	r := gin.Default()
-	r.GET("/", func(c *gin.Context) {
-		name := c.DefaultQuery("name", "World")
-		c.JSON(200, gin.H{
-			"message": fmt.Sprintf("Welcome, %s!", name),
-		})
-	})
+var jwtSeret = []byte("thisisasupersecretkey")
 
-	r.Run(":8080")
+func main() {
+
+	r := gin.Default()
+	routes.RegisterRoutes(r)
+	err := r.Run(":8080")
+	fmt.Println(err)
 }
