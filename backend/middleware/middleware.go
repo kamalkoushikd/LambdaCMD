@@ -1,17 +1,15 @@
 package middleware
 
 import (
-	"database/sql"
+	//"database/sql"
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/golang-jwt/jwt/v5"
-	_ "github.com/lib/pq"
+	//_ "github.com/lib/pq"
 	"net/http"
 	//"os"
 	"strings"
 )
-
-var connstring string = "postgres://postgres:postgres@localhost:5432/postgres?sslmode=disable"
 
 var jwts = []byte("thisisasupersecretkey")
 
